@@ -9,11 +9,12 @@ use App\Http\Controllers\Admin\PengajuanController;
 use App\Http\Controllers\Admin\PenggajianController;
 use App\Http\Controllers\Admin\PenilaianController;
 use App\Http\Controllers\Admin\AbsensiController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Karyawan\DashboardController as Dashboard_Karyawan_Controller;
 use App\Http\Controllers\Karyawan\AbsensiController as Absensi_Karyawan_Controller;
 use App\Http\Controllers\Karyawan\PengajuanController as Pengajuan_Karyawan_Controller;
-
+use App\Http\Controllers\Karyawan\ProfileController as Profile_Karyawan_Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -264,6 +265,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         '/dashboard/admin/penilaian/{id}',
         [PenilaianController::class, 'update']
     )->name('admin.penilaian.update');
+
+    // Profile
+    Route::get(
+        '/dashboard/admin/profile',
+        [ProfileController::class, 'index']
+    )->name('admin.profile.index');
 });
 
 
@@ -318,4 +325,10 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 
     // Karyawan/penggajian
 
+    // karyawan profile
+
+    Route::get(
+        '/dashboard/karyawan/profile',
+        [Profile_Karyawan_Controller::class, 'index']
+    )->name('karyawan.profile.index');
 });

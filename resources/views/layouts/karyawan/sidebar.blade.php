@@ -2,20 +2,21 @@
     <a class="position-absolute custom-arrow-position" role="button" id="sidebarToggle">
         <i class="bi bi-arrow-left-circle" style="font-size: 1.5rem"></i>
     </a>
-
-    <div class="col d-flex align-items-center">
-        <img src="{{ asset('images/profile.png') }}" alt="Profile Picture" class="rounded-circle" width="40"
-            height="40">
-        @if (Auth::check())
-            <div class="d-flex flex-column ms-4">
-                <span class="fw-semibold nav-text ">{{ Auth::user()->name }}</span>
-                <span class="nav-text ">{{ Auth::user()->email }}</span>
-            </div>
-        @endif
-    </div>
+    <a href="{{ route('karyawan.profile.index') }}" class="text-decoration-none">
+        <div class="col d-flex align-items-center">
+            <img src="{{ asset('images/profile.png') }}" alt="Profile Picture" class="rounded-circle" width="40"
+                height="40">
+            @if (Auth::check())
+                <div class="d-flex flex-column ms-4">
+                    <span class="fw-semibold nav-text ">{{ Auth::user()->name }}</span>
+                    <small class="nav-text text-muted ">{{ Auth::user()->email }}</small>
+                </div>
+            @endif
+        </div>
+    </a>
 
     <div class="mt-4 d-flex flex-column align-items-start justify-content-between">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav w-100">
             <li class="nav-item">
                 <a class="nav-link  d-flex px-4 {{ Route::is('karyawan.dashboard') ? 'active text-bg-primary rounded-1 ' : '' }}"
                     href={{ route('karyawan.dashboard') }}>

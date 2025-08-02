@@ -59,7 +59,7 @@ header {
 }
 
 .custom-arrow-position {
-    top: 5px;
+    top: 0.5rem;
     right: -20px;
 }
 
@@ -118,6 +118,13 @@ header {
 .main-content.collapsed {
     margin-left: 7rem !important;
     transition: all 0.5s ease-in-out;
+}
+
+.edit-profile-pic{
+    position: relative;
+    top: 0px;
+    right: 10px;
+    border: 1px solid black;
 }
 
 @media (max-width: 991px) {

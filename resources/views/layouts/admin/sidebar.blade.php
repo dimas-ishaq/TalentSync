@@ -3,16 +3,18 @@
         <i class="bi bi-arrow-left-circle" style="font-size: 1.5rem"></i>
     </a>
 
-    <div class="col d-flex align-items-center">
-        <img src="{{ asset('images/profile.png') }}" alt="Profile Picture" class="rounded-circle" width="40"
-            height="40">
-        @if (Auth::check())
-            <div class="d-flex flex-column ms-4">
-                <span class="fw-semibold nav-text ">{{ Auth::user()->name }}</span>
-                <span class="nav-text ">{{ Auth::user()->email }}</span>
-            </div>
-        @endif
-    </div>
+    <a href="{{ route('admin.profile.index') }}" class="text-decoration-none">
+        <div class="col d-flex align-items-center">
+            <img src="{{ asset('images/profile.png') }}" alt="Profile Picture" class="rounded-circle" width="40"
+                height="40">
+            @if (Auth::check())
+                <div class="d-flex flex-column ms-4">
+                    <span class="fw-semibold nav-text ">{{ Auth::user()->name }}</span>
+                    <span class="nav-text ">{{ Auth::user()->email }}</span>
+                </div>
+            @endif
+        </div>
+    </a>
 
     <div class="mt-4 d-flex flex-column align-items-start justify-content-between">
         <ul class="navbar-nav">
